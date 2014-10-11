@@ -1,8 +1,9 @@
 package  fr.insa_lyon.citi.robotomy.tools;
 
+import android.content.Context;
+
 import java.util.logging.Level;
 
-import android.content.Context;
 import fr.insa_lyon.citi.robotomy.gui.common.BaseActivity;
 
 public abstract class RoboToMyContext {

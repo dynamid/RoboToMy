@@ -1,16 +1,13 @@
 package fr.insa_lyon.citi.robotomy.gui.common;
 
-import java.util.logging.Level;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Window;
-import android.widget.LinearLayout;
+
+import java.util.logging.Level;
 
 import fr.insa_lyon.citi.robotomy.R;
-import fr.insa_lyon.citi.robotomy.gui.main.MainActivity;
 import fr.insa_lyon.citi.robotomy.tools.AppTools;
 import fr.insa_lyon.citi.robotomy.tools.RoboToMyContext;
 
