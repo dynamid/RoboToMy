@@ -1,0 +1,1 @@
+package  fr.insa_lyon.citi.robotomy.tools;public class Constants {		public static final String TAG = "RoboToMe-android";    public static final int MAIN_CONST = 3001;}
