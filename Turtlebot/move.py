@@ -73,8 +73,9 @@ class Server:
     def open_socket(self):
         # Open a new socket
         try:
-            self.server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.server.bind((self.host, self.port))  # Tuple
+            self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.server.bind((self.host, self.port)) 
+            self.server.listen(1)
         except socket.error, (value, message):
             if self.server:
                 self.server.close()
@@ -115,7 +116,9 @@ class Client(threading.Thread):
 
     def run(self):
         try:
-            data, addr = self.server.recvfrom(self.size)
+            conn,addr = self.server.accept() 
+            data = conn.recv(self.size)
+            printf(data)
             if data:
                 self.parent._do_movement(data)
         except Exception, e:
