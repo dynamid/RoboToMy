@@ -76,6 +76,7 @@ public class CalibrateDevice extends BaseActivity{
     }
 
 
+
     private UwbDevice.UwbDeviceListener mIUwbDeviceListener = new UwbDevice.UwbDeviceListener() {
         public void onDistanceChanged(UwbDevice device, int accuracy, long timestamp, float distance){
             counter.setText("" + (int)(distance * 100) + " cm");
@@ -105,5 +106,9 @@ public class CalibrateDevice extends BaseActivity{
 
         }
     };
-
+    @Override
+    protected void onStop() {
+        d.unregisterListener(mIUwbDeviceListener);
+        super.onStop();
+    }
 }

@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ import fr.insa_lyon.citi.robotomy.uwb.UwbManager;
 
 public class CalibrateDeviceList  extends BaseActivity {
     private LinearLayout abstractView;
-    private ListView mainView;
+    private RelativeLayout mainView;
     private TextView windowTitle;
     private UwbManager mUWBManager;
 
@@ -110,7 +111,7 @@ public class CalibrateDeviceList  extends BaseActivity {
         // set layouts
         LayoutInflater mInflater = LayoutInflater.from(this);
         abstractView = (LinearLayout) findViewById(R.id.abstractLinearLayout);
-        mainView = (ListView) mInflater.inflate(R.layout.calibrate_activity, null);
+        mainView = (RelativeLayout) mInflater.inflate(R.layout.calibrate_activity, null);
         abstractView.addView(mainView);
     }
 
@@ -122,9 +123,10 @@ public class CalibrateDeviceList  extends BaseActivity {
         }
         final StableArrayAdapter adapter = new StableArrayAdapter(this,
                 android.R.layout.simple_list_item_1, list);
-        mainView.setAdapter(adapter);
+        ListView l = (ListView) findViewById(R.id.calibrationList);
+        l.setAdapter(adapter);
 
-        mainView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
@@ -163,5 +165,10 @@ public class CalibrateDeviceList  extends BaseActivity {
             return true;
         }
 
+    }
+    @Override
+    protected void onStop() {
+        mUWBManager.unregisterUWBManagerListener(mUwbManagerListener);
+        super.onStop();
     }
 }

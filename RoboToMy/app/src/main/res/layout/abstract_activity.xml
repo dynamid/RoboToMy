@@ -7,7 +7,9 @@
         android:id="@+id/abstract_header_layout"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/top_bar">
+        >
 
         
         <LinearLayout 
@@ -23,7 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/ViewName" />
+            android:text="@string/ViewName"
+            android:textColor="#fffdfffd"
+            />
             
         </LinearLayout>
         
@@ -32,7 +36,8 @@
 	    android:id="@+id/abstractLinearLayout"
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
-	    android:gravity="center"
+	    android:gravity=""
+        android:background="@drawable/back"
 	    android:orientation="vertical" >
 
 	</LinearLayout>

@@ -63,6 +63,8 @@
         android:layout_height="wrap_content"
         android:text="Calibrate"
         android:id="@+id/button"
+        android:background="@drawable/blue_button"
+        android:textColor="#FFF"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

@@ -1,8 +1,19 @@
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+    android:gravity="start"
+    android:baselineAligned="true"
+    android:id="@+id/ER">
+<ListView
+    android:layout_width="fill_parent"
+    android:layout_height="500dp"
+    android:orientation="vertical"
     android:id="@+id/calibrationList"
+    android:choiceMode="singleChoice"
     android:layout_gravity="top"
-    android:choiceMode="singleChoice">
+    android:layout_weight="1"
+    android:dividerHeight="1dp"
+    android:clickable="false">
 </ListView>
+    </RelativeLayout>

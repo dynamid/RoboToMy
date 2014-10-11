@@ -73,6 +73,9 @@ public class LaunchActivity extends BaseActivity {
                         else
                             d.unregisterListener(rotation);
                     }
+                    MyClientTask  myClientTask = new MyClientTask(
+                            ip,8081,"0|0|0|0");
+                    myClientTask.execute();
                 }
                 else{
                     connect.setText("Disconnect");
@@ -185,12 +188,20 @@ public class LaunchActivity extends BaseActivity {
         }
     };
 
+    long time = -1;
     private void sendCommand(float dir_x, float dir_z){
-            String msg = ((int)dir_x)+"|10|"+(int)(dir_z)+"|5";
+        if(time == -1)
+            time = System.currentTimeMillis();
+        else {
+            long now = System.currentTimeMillis();
+            if (now - time < 200)
+                return;
+            time = now;
+        }
+        String msg = ((int)dir_x)+"|10|"+(int)(dir_z)+"|5";
         MyClientTask myClientTask = new MyClientTask(
                 ip,8081,msg);
         myClientTask.execute();
-
     }
 
     public class MyClientTask extends AsyncTask<Void, Void, Void> {
