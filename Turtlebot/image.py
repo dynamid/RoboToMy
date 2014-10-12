@@ -68,7 +68,7 @@ class Server:
  
     def __init__(self):
         self.host = ''
-        self.port = 8090
+        self.port = 8092
         self.backlog = 5
         self.size = 1024
         self.server = None

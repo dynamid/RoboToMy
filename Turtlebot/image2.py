@@ -19,7 +19,7 @@ class ImageConvertor:
         self.server = None
         self.old = None
         # Refresh rate( Framse/sec)
-        self.refresh_rate = 40
+        self.refresh_rate = 4
         print "Starting saving process"
         rospy.init_node('image_converter', anonymous=True)
         self.bridge = CvBridge()
