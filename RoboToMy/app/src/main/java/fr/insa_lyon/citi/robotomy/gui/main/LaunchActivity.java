@@ -107,9 +107,9 @@ public class LaunchActivity extends BaseActivity {
 
     private UwbDevice.UwbDeviceListener rotation = new UwbDevice.UwbDeviceListener() {
         public void onDistanceChanged(UwbDevice device, int accuracy, long timestamp, float distance){
-            if(distance*100 - device.getZero_value()*100 > 5)
+            if(distance*100 - device.getZero_value()*100 > 10)
                 rotation_v = 1;
-            else if(distance*100 - device.getZero_value()*100 < -5)
+            else if(distance*100 - device.getZero_value()*100 < -10)
                 rotation_v = -1;
             else {
                 direction_v = 0;
