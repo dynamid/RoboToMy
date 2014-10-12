@@ -64,7 +64,7 @@ public class LaunchActivity extends BaseActivity {
                     ip = "";
                     c = new WebViewClient();
                     image.setWebViewClient(c);
-                    image.loadData("<html></html","text/html","utf-8");
+                    //image.loadData("<html></html","text/html","utf-8");
                     for(String key: UwbContext.mUwbAttachedDevices.keySet()){
                         UwbDevice d = UwbContext.mUwbAttachedDevices.get(key);
                         if (d.getLeg_hand()==0){
@@ -80,14 +80,10 @@ public class LaunchActivity extends BaseActivity {
                 else{
                     connect.setText("Disconnect");
                     ip = ipHolder.getText().toString();
-
-                    c = new WebViewClient();
-                    image.setWebViewClient(c);
-
-
-                    String ip_tmp = "http://"+ip+":8090/";
+                    String ip_tmp = "http://"+ip+"/";
+                    image.loadUrl(ip_tmp);
                     //image.loadUrl(ip_tmp);
-                    image.loadData("<body><head><title>Robot</title></head><body><img src=\"\"+ ip_tmp+\"\"></body></html>","text/html","utf-8");
+                   //  image.loadData("<body><head><title>Robot</title></head><body><img src=\"\"+ ip_tmp+\"\"></body></html>","text/html","utf-8");
                     AppTools.info(ip_tmp);
 
                     for(String key: UwbContext.mUwbAttachedDevices.keySet()){
